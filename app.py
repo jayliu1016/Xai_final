@@ -1,12 +1,9 @@
 import streamlit as st
-import joblib
 import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import Pipeline
 from src.utils import get_word_importance, highlight_text
-
-@st.cache_resource
-def load_model():
-    model = joblib.load("models/spam_model.joblib")
-    return model
 
 @st.cache_data
 def load_data():
@@ -14,6 +11,20 @@ def load_data():
     df = df[["v1", "v2"]].rename(columns={"v1": "label", "v2": "text"})
     df = df[df["label"].isin(["ham", "spam"])].reset_index(drop=True)
     return df
+
+@st.cache_resource
+def load_model():
+    df = load_data()
+    X = df["text"]
+    y = df["label"].map({"ham": 0, "spam": 1})
+
+    model = Pipeline([
+        ("tfidf", TfidfVectorizer(stop_words="english", max_features=5000)),
+        ("logreg", LogisticRegression(max_iter=1000, n_jobs=-1)),
+    ])
+
+    model.fit(X, y)
+    return model
 
 model = load_model()
 data = load_data()
