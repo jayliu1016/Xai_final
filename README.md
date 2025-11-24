@@ -12,6 +12,10 @@ Users can:
 The entire application is built with **Streamlit**, **scikit-learn**, and **TF-IDF + Logistic Regression**, making the model fully interpretable and ideal for Responsible AI demonstrations.
 
 ---
+## 🌐 Live Demo  
+Try the full interactive application here:
+
+🔗 **https://xaifinal-hdlejzhg9xugzrrdzarmvv.streamlit.app/**
 
 ## 🚀 Demo Features
 
@@ -144,7 +148,7 @@ Contains 5,574 labeled SMS messages:
 - Add SHAP explanations for deeper interpretability  
 - Compare Logistic Regression vs. a black-box transformer model  
 - Visualize global feature importance across the full dataset  
-- Deploy online using Streamlit Cloud  
+- Deploy online using Streamlit Cloud （Done）
 
 ---
 

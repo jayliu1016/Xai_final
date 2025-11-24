@@ -202,11 +202,12 @@ The final deployed application integrates explainability, robustness analysis, a
 
 ---
 
-## **11. Demo Link**
-*(Insert once Streamlit app finishes deploying)*
 
-Example:  
-https://xai-spam-detector.streamlit.app/
+##  **11. Live Demo  
+Try the full interactive application here:
+
+https://xaifinal-hdlejzhg9xugzrrdzarmvv.streamlit.app/
+
 
 ---
 
